@@ -1,0 +1,237 @@
+:root {
+    --color-bg: #121212;
+    --color-card: #1E1E2E;
+    --color-primary: #8B5CF6;
+    --color-primary-hover: #7C3AED; 
+    --color-secondary: #EDE9FE; 
+    --color-text: #EDEDED;
+    --color-muted: #A1A1AA; 
+    --color-success: #4ADE80;
+    --color-white: #FFFFFF;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--color-bg);
+    font-family: "Inter", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Banner */
+.header-banner {
+    flex: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0;
+    background: linear-gradient(135deg, #1E1E2E, #2E2E3E);
+}
+
+/* Seção principal */
+.input-section {
+    flex: 60%;
+    background: var(--color-card);
+    border-radius: 32px 32px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Títulos */
+.main-title {
+    font-family: "Poppins", sans-serif; /* Nova fonte */
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Input + botão de adicionar */
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.input-name {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 16px;
+    background: #2A2A3C;
+    color: var(--color-white);
+    outline: none;
+}
+
+.button-add {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.button-add:hover {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+}
+
+/* Listas */
+ul {
+    list-style-type: none;
+    color: var(--color-text);
+    font-size: 18px;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.result-list {
+    margin-top: 15px;
+    color: var(--color-success);
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Botão sortear */
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-draw {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.button-draw:hover {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05); /* Efeito de destaque */
+}
+
+.button-draw img {
+    width: 24px;
+}
+
+/* Classes de controle */
+.hidden {
+    display: none;
+}
+
+/* Efeito de transição para novos nomes na lista */
+.name-list-item {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.name-list-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.button-delete {
+    background-color: transparent;
+    border: none;
+    color: #f00;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.button-delete:hover {
+    opacity: 1;
+}
+
+.hidden-section {
+    display: none;
+}
+
+/* --- Estilos para telas menores (Responsividade) --- */
+@media (max-width: 600px) {
+    /* Ajusta o tamanho dos títulos para telas menores */
+    .main-title {
+        font-size: 36px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    /* Ajusta o input e botões para que fiquem em colunas */
+    .input-wrapper,
+    .button-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Ajusta a largura dos botões e inputs para ocupar a tela inteira */
+    .input-name,
+    .button-add,
+    .button-draw {
+        border-radius: 8px; /* Remove as bordas arredondadas de um lado */
+        width: 100%;
+        max-width: none;
+    }
+    
+    /* Corrige o layout da lista para telas menores */
+    ul {
+        padding: 0 10px;
+    }
+
+    .button-draw img {
+        margin-right: 0;
+    }
+}
